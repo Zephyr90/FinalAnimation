@@ -1,17 +1,21 @@
 package com.example.zephyr.finalanimation;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.zephyr.finalanimation.view.BounceBall;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,9 +48,7 @@ public class ValueAnimatorActivity extends BaseActivity {
     @BindView(R.id.btn_progress)
     Button mBtnProgress;
     @BindView(R.id.view_ball)
-    ImageView mViewBall;
-
-    private int mAnimatedValue;
+    BounceBall mViewBall;
 
     public static void start(Activity context) {
         Intent intent = new Intent(context, ValueAnimatorActivity.class);
@@ -101,18 +103,23 @@ public class ValueAnimatorActivity extends BaseActivity {
 
     @OnClick(R.id.btn_progress)
     public void onProgressClick() {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 400);
-        valueAnimator.setDuration(600);
-        valueAnimator.setInterpolator(new LinearInterpolator());
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 200, 0);
+        valueAnimator.setDuration(800);
+        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        valueAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        valueAnimator.setRepeatMode(ValueAnimator.RESTART);
         valueAnimator.addUpdateListener(animation -> {
             int animatedValue = (int) animation.getAnimatedValue();
-
             mViewBall.layout(mViewBall.getLeft()
                     , animatedValue
                     , mViewBall.getRight()
                     , mViewBall.getHeight() + animatedValue);
+        });
+        valueAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                mViewBall.invalidate();
+            }
         });
         valueAnimator.start();
     }

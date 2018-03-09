@@ -49,12 +49,11 @@ public class BounceBall extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-//        if (isEven(getIndex())) {
-//            canvas.drawRect(mRect, mPaint);
-//        } else {
-//            canvas.drawCircle(mRect.exactCenterX(), mRect.exactCenterY(), RADIUS, mPaint);
-//        }
-        canvas.drawRect(mRect, mPaint);
+        if (isEven(getIndex())) {
+            canvas.drawRect(mRect, mPaint);
+        } else {
+            canvas.drawCircle(mRect.exactCenterX(), mRect.exactCenterY(), RADIUS, mPaint);
+        }
     }
 
     public int getIndex() {
@@ -67,10 +66,33 @@ public class BounceBall extends View {
 
     /**
      * 是否为偶数
+     *
      * @param number
      * @return
      */
     private boolean isEven(int number) {
         return number % 2 == 0;
     }
+
+//    private void startAnimation() {
+//        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 200, 0);
+//        valueAnimator.setDuration(800);
+//        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+//        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+//        valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+//        valueAnimator.addUpdateListener(animation -> {
+//            int animatedValue = (int) animation.getAnimatedValue();
+//            layout(getLeft()
+//                    , getTop() + animatedValue
+//                    , getRight()
+//                    , getBottom() + animatedValue);
+//        });
+//        valueAnimator.addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationRepeat(Animator animation) {
+//                invalidate();
+//            }
+//        });
+//        valueAnimator.start();
+//    }
 }
