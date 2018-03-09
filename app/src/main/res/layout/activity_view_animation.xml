@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zephyr.finalanimation.ViewAnimationActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="View Animation"/>
+
+    <ImageView
+        android:id="@+id/iv_target"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        app:srcCompat="?android:attr/colorPressedHighlight"/>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:onClick="onScale"
+            android:text="Scale"
+            android:textSize="10sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:onClick="onAlpha"
+            android:text="Alpha"
+            android:textSize="10sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:onClick="onTranslate"
+            android:text="translate"
+            android:textSize="10sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:onClick="onRotate"
+            android:text="Rotate"
+            android:textSize="10sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:onClick="onSet"
+            android:text="Animation Set"
+            android:textSize="10sp"/>
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AccelerateDecelerateInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AccelerateInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AnticipateInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AnticipateOvershootInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BounceInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CycleInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DecelerateInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinearInterpolator"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/interpolatro_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OvershootInterpolator"/>
+        </RadioGroup>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.v7.widget.LinearLayoutCompat>
