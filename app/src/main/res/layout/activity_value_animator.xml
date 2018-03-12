@@ -11,111 +11,164 @@
                                               android:paddingTop="@dimen/activity_vertical_margin"
                                               tools:context="com.example.zephyr.finalanimation.ValueAnimatorActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:gravity="center"
-        android:text="ValueAnimator"/>
-
-    <ImageView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/colorPrimary"/>
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_start_of_int"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ofInt"/>
-
-        <TextView
-            android:id="@+id/tv_target_of_int"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:text="start"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_start_of_float"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ofFloat"/>
-
-        <TextView
-            android:id="@+id/tv_target_of_float"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:text="start"/>
-
-        <ProgressBar
-            android:id="@+id/tv_target_of_float_progress"
-            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"/>
-    </LinearLayout>
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="ValueAnimator"/>
 
-        <Button
-            android:id="@+id/btn_start_of_argb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ofArgb"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorPrimary"/>
 
-        <TextView
-            android:id="@+id/tv_target_of_argb"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:text="start"/>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/btn_start_of_int"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ofInt"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="进程对话框"/>
-
-        <com.example.zephyr.finalanimation.view.BounceBall
-            android:id="@+id/view_ball"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_target_of_int"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="start"/>
+            </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_of_float"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ofFloat"/>
+
+                <TextView
+                    android:id="@+id/tv_target_of_float"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="start"/>
+
+                <ProgressBar
+                    android:id="@+id/tv_target_of_float_progress"
+                    style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_of_argb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ofArgb"/>
+
+                <TextView
+                    android:id="@+id/tv_target_of_argb"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="start"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="进程对话框"/>
+
+                <com.example.zephyr.finalanimation.view.BounceBall
+                    android:id="@+id/view_ball"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="ObjectAnimator"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_change_radius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="改变半径"/>
+
+                <com.example.zephyr.finalanimation.view.CircleView
+                    android:id="@+id/view_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_change_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="改变背景"/>
+
+                <TextView
+                    android:id="@+id/tv_change_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="改变TextView的背景"/>
+            </LinearLayout>
+        </android.support.v7.widget.LinearLayoutCompat>
+    </ScrollView>
 </android.support.v7.widget.LinearLayoutCompat>

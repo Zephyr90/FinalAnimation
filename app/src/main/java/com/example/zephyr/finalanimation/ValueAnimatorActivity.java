@@ -1,14 +1,13 @@
 package com.example.zephyr.finalanimation;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
@@ -16,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.zephyr.finalanimation.view.BounceBall;
+import com.example.zephyr.finalanimation.view.CircleView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +28,7 @@ import butterknife.OnClick;
  * 方法：ofInt， ofFloat
  */
 public class ValueAnimatorActivity extends BaseActivity {
+    private static final String TAG = "ValueAnimatorActivity";
 
     @BindView(R.id.tv_target_of_int)
     TextView mTvTarget;
@@ -49,6 +50,14 @@ public class ValueAnimatorActivity extends BaseActivity {
     Button mBtnProgress;
     @BindView(R.id.view_ball)
     BounceBall mViewBall;
+    @BindView(R.id.btn_change_radius)
+    Button mBtnChangeRadius;
+    @BindView(R.id.view_circle)
+    CircleView mViewCircle;
+    @BindView(R.id.btn_change_bg)
+    Button mBtnChangeBg;
+    @BindView(R.id.tv_change_bg)
+    TextView mTvChangeBg;
 
     public static void start(Activity context) {
         Intent intent = new Intent(context, ValueAnimatorActivity.class);
@@ -103,24 +112,47 @@ public class ValueAnimatorActivity extends BaseActivity {
 
     @OnClick(R.id.btn_progress)
     public void onProgressClick() {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 200, 0);
-        valueAnimator.setDuration(800);
-        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        valueAnimator.setRepeatMode(ValueAnimator.RESTART);
-        valueAnimator.addUpdateListener(animation -> {
-            int animatedValue = (int) animation.getAnimatedValue();
-            mViewBall.layout(mViewBall.getLeft()
-                    , animatedValue
-                    , mViewBall.getRight()
-                    , mViewBall.getHeight() + animatedValue);
-        });
-        valueAnimator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-                mViewBall.invalidate();
-            }
-        });
-        valueAnimator.start();
+//        ValueAnimator valueAnimator = ValueAnimator.ofInt(((int) mViewBall.getY()), 0, ((int) mViewBall.getY()));
+//        valueAnimator.setDuration(800);
+//        valueAnimator.setInterpolator(new DecelerateAccelerateInterpolator());
+//        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+//        valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+//        valueAnimator.addUpdateListener(animation -> {
+//            int animatedValue = (int) animation.getAnimatedValue();
+//            mViewBall.layout(mViewBall.getLeft()
+//                    , animatedValue
+//                    , mViewBall.getRight()
+//                    , mViewBall.getHeight() + animatedValue);
+//        });
+//        valueAnimator.addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationRepeat(Animator animation) {
+//                super.onAnimationRepeat(animation);
+//                Log.d(TAG, "onAnimationRepeat: ");
+//                if (mViewBall.isCircle()) {
+//                    mViewBall.setCircle(false);
+//                } else {
+//                    mViewBall.setCircle(true);
+//                }
+//                mViewBall.invalidate();
+//            }
+//        });
+//        valueAnimator.start();
+    }
+
+    @OnClick(R.id.btn_change_radius)
+    public void onChangeRadius() {
+        mViewCircle.startAnimation();
+    }
+
+    @OnClick(R.id.btn_change_bg)
+    public void onChangeBg() {
+        ObjectAnimator animator = ObjectAnimator.ofInt(mTvChangeBg, "BackgroundColor", 0xffff00ff, 0xffffff00, 0xffff00ff);
+        animator.setDuration(1000);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setEvaluator(new ArgbEvaluator());
+        animator.setRepeatMode(ObjectAnimator.REVERSE);
+        animator.setRepeatCount(ObjectAnimator.INFINITE);
+        animator.start();
     }
 }
