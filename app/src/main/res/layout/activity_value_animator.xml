@@ -169,6 +169,24 @@
                     android:layout_height="wrap_content"
                     android:text="改变TextView的背景"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_pvh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PropertyValueHolder"/>
+
+                <ImageView
+                    android:id="@+id/iv_pvh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_phone"/>
+            </LinearLayout>
         </android.support.v7.widget.LinearLayoutCompat>
     </ScrollView>
 </android.support.v7.widget.LinearLayoutCompat>

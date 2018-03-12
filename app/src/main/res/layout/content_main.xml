@@ -33,6 +33,12 @@
         android:layout_height="wrap_content"
         android:text="MD新增动画效果"/>
 
+    <Button
+        android:id="@+id/btn_custom_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义View"/>
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

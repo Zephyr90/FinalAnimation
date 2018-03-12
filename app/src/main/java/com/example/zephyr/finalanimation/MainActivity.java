@@ -1,5 +1,6 @@
 package com.example.zephyr.finalanimation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -36,6 +37,10 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawerLayout;
     @BindView(R.id.btn_view_animation)
     Button btnViewAnimation;
+    @BindView(R.id.btn_value_animator)
+    Button mBtnValueAnimator;
+    @BindView(R.id.btn_custom_view)
+    Button mBtnCustomView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,5 +127,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @OnClick(R.id.btn_custom_view)
+    public void onViewClicked() {
+        Intent intent = new Intent(this, CustomViewActivity.class);
+        startActivity(intent);
     }
 }

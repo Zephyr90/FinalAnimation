@@ -1,7 +1,9 @@
 package com.example.zephyr.finalanimation;
 
 import android.animation.ArgbEvaluator;
+import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +13,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -58,6 +61,10 @@ public class ValueAnimatorActivity extends BaseActivity {
     Button mBtnChangeBg;
     @BindView(R.id.tv_change_bg)
     TextView mTvChangeBg;
+    @BindView(R.id.btn_pvh)
+    Button mBtnPvh;
+    @BindView(R.id.iv_pvh)
+    ImageView mIvPvh;
 
     public static void start(Activity context) {
         Intent intent = new Intent(context, ValueAnimatorActivity.class);
@@ -153,6 +160,59 @@ public class ValueAnimatorActivity extends BaseActivity {
         animator.setEvaluator(new ArgbEvaluator());
         animator.setRepeatMode(ObjectAnimator.REVERSE);
         animator.setRepeatCount(ObjectAnimator.INFINITE);
+        animator.start();
+    }
+
+
+    @OnClick(R.id.btn_pvh)
+    public void onPvhClick() {
+        Keyframe keyframe0 = Keyframe.ofFloat(0f, 0);
+        Keyframe keyframe1 = Keyframe.ofFloat(0.1f, 20f);
+        Keyframe keyframe2 = Keyframe.ofFloat(0.2f, -20f);
+        Keyframe keyframe3 = Keyframe.ofFloat(0.3f, 20f);
+        Keyframe keyframe4 = Keyframe.ofFloat(0.4f, -20f);
+        Keyframe keyframe5 = Keyframe.ofFloat(0.5f, 20f);
+        Keyframe keyframe6 = Keyframe.ofFloat(0.6f, -20f);
+        Keyframe keyframe7 = Keyframe.ofFloat(0.7f, 20f);
+        Keyframe keyframe8 = Keyframe.ofFloat(0.8f, -20f);
+        Keyframe keyframe9 = Keyframe.ofFloat(0.9f, 20f);
+        Keyframe keyframe10 = Keyframe.ofFloat(1f, 0f);
+
+        PropertyValuesHolder propertyValuesHolder1 = PropertyValuesHolder.ofKeyframe("Rotation", keyframe0, keyframe1, keyframe2,
+                keyframe3, keyframe4, keyframe5, keyframe6, keyframe7, keyframe8, keyframe9, keyframe10);
+
+
+        Keyframe sKeyframe1 = Keyframe.ofFloat(0f, 1f);
+        Keyframe sKeyframe2 = Keyframe.ofFloat(0.1f, 1.1f);
+        Keyframe sKeyframe3 = Keyframe.ofFloat(0.2f, 1.2f);
+        Keyframe sKeyframe4 = Keyframe.ofFloat(0.3f, 1.3f);
+        Keyframe sKeyframe5 = Keyframe.ofFloat(0.4f, 1.4f);
+        Keyframe sKeyframe6 = Keyframe.ofFloat(0.5f, 1.5f);
+        Keyframe sKeyframe7 = Keyframe.ofFloat(0.6f, 1.6f);
+        Keyframe sKeyframe8 = Keyframe.ofFloat(0.7f, 1.7f);
+        Keyframe sKeyframe9 = Keyframe.ofFloat(0.8f, 1.8f);
+        Keyframe sKeyframe10 = Keyframe.ofFloat(0.9f, 1.9f);
+        Keyframe sKeyframe11 = Keyframe.ofFloat(1f, 1f);
+        PropertyValuesHolder propertyValuesHolder2 = PropertyValuesHolder.ofKeyframe("scaleX", sKeyframe1, sKeyframe2, sKeyframe3,
+                sKeyframe4, sKeyframe5, sKeyframe6, sKeyframe7, sKeyframe8, sKeyframe9, sKeyframe10, sKeyframe11);
+
+        Keyframe sKeyframe01 = Keyframe.ofFloat(0f, 1f);
+        Keyframe sKeyframe21 = Keyframe.ofFloat(0.1f, 1.1f);
+        Keyframe sKeyframe31 = Keyframe.ofFloat(0.2f, 1.2f);
+        Keyframe sKeyframe41 = Keyframe.ofFloat(0.3f, 1.3f);
+        Keyframe sKeyframe51 = Keyframe.ofFloat(0.4f, 1.4f);
+        Keyframe sKeyframe61 = Keyframe.ofFloat(0.5f, 1.5f);
+        Keyframe sKeyframe71 = Keyframe.ofFloat(0.6f, 1.6f);
+        Keyframe sKeyframe81 = Keyframe.ofFloat(0.7f, 1.7f);
+        Keyframe sKeyframe91 = Keyframe.ofFloat(0.8f, 1.8f);
+        Keyframe sKeyframe101 = Keyframe.ofFloat(0.9f, 1.9f);
+        Keyframe sKeyframe111 = Keyframe.ofFloat(1f, 1f);
+        PropertyValuesHolder propertyValuesHolder3 = PropertyValuesHolder.ofKeyframe("scaleX", sKeyframe01, sKeyframe21, sKeyframe31,
+                sKeyframe41, sKeyframe51, sKeyframe61, sKeyframe71, sKeyframe81, sKeyframe91, sKeyframe101, sKeyframe111);
+
+
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(mIvPvh, propertyValuesHolder1, propertyValuesHolder2, propertyValuesHolder3);
+        animator.setDuration(1000);
         animator.start();
     }
 }
