@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -22,6 +24,8 @@ public class Watch extends View {
     private static final int HOUR_TAG_LENGTH = 60;
 
     private static final int MINUTE_TAG_LENGTH = 30;
+
+    private static final int DEFAULT_FONT_SIZE = 30;
 
     private Paint mPaint;
 
@@ -65,7 +69,7 @@ public class Watch extends View {
 
         mPaint.setColor(DEFAULT_COLOR);
         mPaint.setStrokeWidth(1);
-        mPaint.setTextSize(12);
+        mPaint.setTextSize(DEFAULT_FONT_SIZE);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
         mRadius = 300;
@@ -93,7 +97,10 @@ public class Watch extends View {
             mRect = new Rect(0, 0, mRadius * 2, mRadius * 2);
         }
         canvas.drawCircle(mRect.exactCenterX(), mRect.exactCenterY(), mRadius, mPaint);
-        canvas.drawCircle(mRect.exactCenterX(), mRect.exactCenterY(), 3, mPaint);
+        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawColor(Color.GREEN);
+        mPaint.setXfermode(null);
+        canvas.drawPoint(mRect.exactCenterX(), mRect.exactCenterY(), mPaint);
         canvas.drawLine(mRect.exactCenterX(), mRect.exactCenterY(), mRect.exactCenterX(), 80, mPaint);
         canvas.drawLine(mRect.exactCenterX(), mRect.exactCenterY(), mRadius * 2 - 100, mRadius, mPaint);
         drawHoursTag(canvas);
@@ -101,11 +108,11 @@ public class Watch extends View {
     }
 
     private void drawHoursTag(Canvas canvas) {
-        for (int i = 0 ; i < 12; i++) {
+        for (int i = 1 ; i <= 12; i++) {
             canvas.save();
             canvas.rotate(mDegree * i, mRect.exactCenterX(), mRect.exactCenterY());
             canvas.drawLine(mRect.exactCenterX(), 0, mRect.exactCenterX(), HOUR_TAG_LENGTH, mHourPaint);
-            canvas.drawText(String.valueOf(i), mRadius, HOUR_TAG_LENGTH, mPaint);
+            canvas.drawText(String.valueOf(i), mRadius - mPaint.measureText(String.valueOf(i)) / 2, HOUR_TAG_LENGTH + DEFAULT_FONT_SIZE, mPaint);
             canvas.restore();
         }
     }
