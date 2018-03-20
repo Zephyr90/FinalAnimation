@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity
     Button mBtnValueAnimator;
     @BindView(R.id.btn_custom_view)
     Button mBtnCustomView;
+    @BindView(R.id.btn_canvas)
+    Button mBtnCanvas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +134,12 @@ public class MainActivity extends AppCompatActivity
     @OnClick(R.id.btn_custom_view)
     public void onViewClicked() {
         Intent intent = new Intent(this, CustomViewActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_canvas)
+    public void onCanvasClicked() {
+        Intent intent = new Intent(this, CanvasActivity.class);
         startActivity(intent);
     }
 }
